@@ -13,10 +13,14 @@ import java.util.concurrent.atomic.AtomicReference;
 /**
  * @author dht
  * @create 2019-02-25 23:01
- *
+ * <p>
+ * 该Servlet在没有足够原子性保证的情况下对其最近计算结果进行缓存（不要这么做）
+ * <p>
  * 存在竞态条件：对number的判断
- *
+ * <p>
  * 要保持状态的一致性，就需要在单个原子操作中更新所有的相关状态变量
+ * <p>
+ * 不变性条件
  **/
 
 @NotThreadSafe
